@@ -107,10 +107,11 @@ pub fn main() !void {
 
     {
         var b: [256]u8 = undefined;
-        const banner = std.fmt.bufPrint(&b,
+        const banner = std.fmt.bufPrint(
+            &b,
             "\r\n=== Ghostty ConPTY harness ===\r\n" ++
-            "launching: {s}\r\n" ++
-            "(this proves src/pty.zig WindowsPty end-to-end; type `exit` to quit)\r\n\r\n",
+                "launching: {s}\r\n" ++
+                "(this proves src/pty.zig WindowsPty end-to-end; type `exit` to quit)\r\n\r\n",
             .{cmd},
         ) catch "\r\n=== Ghostty ConPTY harness ===\r\n";
         writeAll(stdout, banner);
